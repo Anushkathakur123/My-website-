@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>my javascript code </title>
+      <script type="text/JavaScript">alert ("Hello world");
+    </script>
+<script>
+function abc() {
+    var x = 10;   // local variable
+    document.write(x);
+}
+
+abc();  // function call
+</script>
+<script>
+var x = 10; //global variable 
+
+function abc() {
+    document.write(x + "<br>");
+}
+
+abc();
+document.write(x);
+</script><br>
+<script>
+for (var i = 1; i <= 10; i++) {
+    document.write(i + "<br>");
+}
+</script>
+<script>
+var name = "Anushka" + " thakur ";   // string expression
+document.write(name);
+</script>
+<title>Calculator</title>
+
+<style>
+body{
+    margin:0;
+    background:black;
+    font-family: Arial;
+}
+
+.calculator{
+    max-width:360px;
+    margin:auto;
+    padding:20px;
+}
+
+#display{
+    height:80px;
+    font-size:32px;
+    text-align:right;
+    padding:20px;
+    background:white;
+    color:black;
+    border-radius:10px;
+    box-sizing:border-box;
+}
+
+.buttons{
+    display:grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:10px;
+    margin-top:15px;
+}
+
+button{
+    height:65px;
+    font-size:20px;
+    border:none;
+    border-radius:50%;
+    background:#333;
+    color:white;
+}
+
+.equal{
+    grid-column: span 4;
+    border-radius:40px;
+    background:#ff5722;
+}
+</style>
+</head>
+
+<body>
+
+<div class="calculator">
+    <!-- IMPORTANT: empty string, NOT undefined -->
+    <div id="display"></div>
+
+    <div class="buttons">
+        <button onclick="add('7')">7</button>
+        <button onclick="add('8')">8</button>
+        <button onclick="add('9')">9</button>
+        <button onclick="add('/')">/</button>
+
+        <button onclick="add('4')">4</button>
+        <button onclick="add('5')">5</button>
+        <button onclick="add('6')">6</button>
+        <button onclick="add('*')">*</button>
+
+        <button onclick="add('1')">1</button>
+        <button onclick="add('2')">2</button>
+        <button onclick="add('3')">3</button>
+        <button onclick="add('-')">-</button>
+
+        <button onclick="add('0')">0</button>
+        <button onclick="clr()">C</button>
+        <button onclick="del()">DEL</button>
+        <button onclick="add('+')">+</button>
+
+        <button class="equal" onclick="calc()">=</button>
+    </div>
+</div>
+
+<script>
+let display = document.getElementById("display");
+
+function add(val){
+    display.innerHTML += val;   // no undefined now
+}
+
+function clr(){
+    display.innerHTML = "";
+}
+
+function del(){
+    display.innerHTML = display.innerHTML.slice(0, -1);
+}
+
+function calc(){
+    try{
+        display.innerHTML = eval(display.innerHTML);
+    }catch{
+        display.innerHTML = "Error";
+    }
+}
+</script><br>
+
+</body>
+</html>
